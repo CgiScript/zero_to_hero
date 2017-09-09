@@ -8,7 +8,7 @@ def make_request():
     port = 80
     sock.connect((ip,port))
     
-    sock.send(("GET / HTTP/1.1\nHost: {}\n\n".format(url)).encode())
+    sock.send(("GET / HTTP/1.1\nHost: {}\nConnection: keep-alive\n\n".format(url)).encode())
     response = sock.recv(2048).decode()
     sock.close()
     
